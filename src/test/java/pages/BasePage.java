@@ -9,10 +9,13 @@ public class BasePage {
     public static final By PASSWORD_INPUT = By.id("password");
     WebDriver driver;
     WebDriverWait wait;
-    String baseUrl ="https://login.salesforce.com/";
-    public BasePage(WebDriver driver){
-        this.driver=driver;
-        wait = new WebDriverWait(driver,50);
+    String baseUrl = "https://login.salesforce.com/";
+
+    public BasePage(WebDriver driver) {
+        this.driver = driver;
+        wait = new WebDriverWait(driver, 50);
     }
 
+    public BasePage() {
+    }
 }

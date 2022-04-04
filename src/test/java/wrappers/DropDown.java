@@ -1,6 +1,7 @@
 package wrappers;
 
 import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 
 public class DropDown {
@@ -14,7 +15,8 @@ public class DropDown {
     }
 
     public void select(String option) {
-        driver.findElement(By.xpath(String.format("//span[text()='%s']/ancestor::div[contains(@class, 'uiInput')]//a", label))).click();
+        driver.findElement(By.xpath(String.format("//span[text()='%s']" +
+                "/ancestor::div[contains(@class, 'uiInput')]//a", label))).click();
         driver.findElement(By.cssSelector(String.format("a[title=%s]", option))).click();
 
     }

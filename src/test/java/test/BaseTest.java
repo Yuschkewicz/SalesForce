@@ -1,15 +1,19 @@
 package test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.testng.ITestContext;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import pages.AccountsPage;
 import pages.ContactsPage;
+import pages.NewAccountModal;
+import pages.NewContactsModal;
 
 import java.time.Duration;
 
@@ -19,6 +23,9 @@ public class BaseTest {
     WebDriver driver;
     AccountsPage accountsPage;
     ContactsPage contactsPage;
+    NewAccountModal newAccountModal;
+    NewContactsModal newContactsModal;
+
     @Parameters({"browser"})
     @BeforeMethod
     public void setup(@Optional("chrome") String browser, ITestContext testContext) {
@@ -36,10 +43,12 @@ public class BaseTest {
         }
         testContext.setAttribute("driver", driver);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
-        accountsPage=new AccountsPage(driver);
-        contactsPage=new ContactsPage(driver);
+        accountsPage = new AccountsPage(driver);
+        contactsPage = new ContactsPage(driver);
+        newAccountModal = new NewAccountModal(driver);
+        newContactsModal = new NewContactsModal(driver);
     }
 
 
