@@ -26,6 +26,7 @@ public class BaseTest {
     NewAccountModal newAccountModal;
     NewContactsModal newContactsModal;
 
+
     @Parameters({"browser"})
     @BeforeMethod
     public void setup(@Optional("chrome") String browser, ITestContext testContext) {

@@ -1,7 +1,6 @@
 package wrappers;
 
 import org.openqa.selenium.By;
-
 import org.openqa.selenium.WebDriver;
 
 public class DropDown {
@@ -13,6 +12,7 @@ public class DropDown {
         this.driver = driver;
         this.label = label;
     }
+
 
     public void select(String option) {
         driver.findElement(By.xpath(String.format("//span[text()='%s']" +
