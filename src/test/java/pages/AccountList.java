@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,9 +18,12 @@ public class AccountList extends BasePage{
     }
 
     @Override
-    public BasePage isPageOpened() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated((TITLE)));
-        return this;
+    public boolean isPageOpened() {
+        try{
+        wait.until(ExpectedConditions.visibilityOfElementLocated((TITLE)));}
+        catch (TimeoutException ex){
+        return false;}
+        return true;
     }
 
     public AccountList open(){

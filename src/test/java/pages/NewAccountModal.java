@@ -2,6 +2,7 @@ package pages;
 
 import dto.Account;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import wrappers.DropDown;
@@ -18,9 +19,13 @@ public static final By SAVE = By.cssSelector("[title=Save");
     }
 
     @Override
-    public BasePage isPageOpened() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated((SAVE)));
-        return this;
+    public boolean isPageOpened() {
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated((SAVE)));
+        } catch (TimeoutException ex) {
+            return false;
+        }
+        return true;
     }
 
     public NewAccountModal createAccountLite(Account account) {

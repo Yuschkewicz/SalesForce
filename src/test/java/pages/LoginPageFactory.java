@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,9 +25,13 @@ public class LoginPageFactory extends BasePage{
     }
 
     @Override
-    public BasePage isPageOpened() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Login")));
-        return this;
+    public boolean isPageOpened() {
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Login")));
+        } catch (TimeoutException ex) {
+            return false;
+        }
+        return true;
     }
 
     public void login() {
