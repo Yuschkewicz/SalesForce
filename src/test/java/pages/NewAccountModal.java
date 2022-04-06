@@ -20,12 +20,7 @@ public static final By SAVE = By.cssSelector("[title=Save");
 
     @Override
     public boolean isPageOpened() {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated((SAVE)));
-        } catch (TimeoutException ex) {
-            return false;
-        }
-        return true;
+        return waitForElement(SAVE);
     }
 
     public NewAccountModal createAccountLite(Account account) {

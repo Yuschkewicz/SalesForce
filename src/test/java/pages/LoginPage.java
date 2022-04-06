@@ -15,12 +15,7 @@ public class LoginPage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_BUTTON));
-        } catch (TimeoutException ex) {
-            return false;
-        }
-        return true;
+        return waitForElement(LOGIN_BUTTON);
     }
 
     public LoginPage login() {

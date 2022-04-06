@@ -13,16 +13,11 @@ public class AccountsPage extends BasePage {
         super(driver);
     }
 
+    public static final By BUTTON_NEW=By.cssSelector("a[title=New]");
+
     @Override
     public boolean isPageOpened() {
-        try {
-
-
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[title=New]")));
-        } catch (TimeoutException ex) {
-            return false;
-        }
-        return true;
+       return waitForElement(BUTTON_NEW);
     }
 
 
@@ -30,7 +25,7 @@ public class AccountsPage extends BasePage {
         driver.get("https://tsw17.lightning.force.com/lightning/o/Account/list?filterName=Recent");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class," +
                 "'slds-breadcrumb__item')]//span[text()='Accounts']")));
-        driver.findElement(By.cssSelector("a[title=New]")).click();
+        driver.findElement(BUTTON_NEW).click();
 
 
     }

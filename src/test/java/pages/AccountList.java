@@ -19,11 +19,7 @@ public class AccountList extends BasePage{
 
     @Override
     public boolean isPageOpened() {
-        try{
-        wait.until(ExpectedConditions.visibilityOfElementLocated((TITLE)));}
-        catch (TimeoutException ex){
-        return false;}
-        return true;
+        return waitForElement(TITLE);
     }
 
     public AccountList open(){

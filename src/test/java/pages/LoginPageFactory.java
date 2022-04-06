@@ -26,12 +26,7 @@ public class LoginPageFactory extends BasePage{
 
     @Override
     public boolean isPageOpened() {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Login")));
-        } catch (TimeoutException ex) {
-            return false;
-        }
-        return true;
+       return waitForElement(LOGIN_BUTTON);
     }
 
     public void login() {

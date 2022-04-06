@@ -14,19 +14,14 @@ public class NewContactsModal extends BasePage {
     public static final By SAVE = By.cssSelector("[title=Save");
 
     public NewContactsModal(WebDriver driver) {
-        super();
-        this.driver = driver;
+        super(driver);
+
 
     }
 
     @Override
     public boolean isPageOpened() {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(SAVE));
-        } catch (TimeoutException Ex) {
-            return false;
-        }
-        return true;
+        return waitForElement(SAVE);
     }
 
     public void createDropDownFields(String salutation, String lead_source) {

@@ -1,7 +1,9 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -23,6 +25,15 @@ public abstract class BasePage {
     //TODO implement opening of the page
     //public abstract BasePage openPage();
 
-    public BasePage() {
+    boolean waitForElement(By locator){
+
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        } catch (TimeoutException ex) {
+            return false;
+        }
+        return true;
     }
+
+
 }
