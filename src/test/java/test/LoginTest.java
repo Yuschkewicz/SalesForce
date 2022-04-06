@@ -15,7 +15,7 @@ public class LoginTest extends BaseTest {
     @Test(description = "Positive  test with valid data")
     public void loginAndStart() {
         loginPage.login();
-        Account account=new Account("Tsm", "tsm.by", "Biotechnology");
+        Account account = new Account("Tsm", "tsm.by", "Biotechnology");
         accountSteps.create(account);
     }
 

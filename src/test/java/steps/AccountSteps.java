@@ -12,18 +12,18 @@ public class AccountSteps {
     AccountList accountList;
     NewAccountModal newAccountModal;
 
-   public AccountSteps(WebDriver driver){
-       accountList=new AccountList(driver);
-       newAccountModal = new NewAccountModal(driver);
-   }
+    public AccountSteps(WebDriver driver) {
+        accountList = new AccountList(driver);
+        newAccountModal = new NewAccountModal(driver);
+    }
 
-   @Step("Создание аккаунта: '{account.accountName}'" )
-   public void create(Account account){
-accountList.open();
-accountList.clickNew();
-assertTrue(newAccountModal.isPageOpened(),"Модалка сломалася");
-newAccountModal.createAccountLite(account);
-newAccountModal.save();
+    @Step("Создание аккаунта: '{account.accountName}'")
+    public void create(Account account) {
+        accountList.open();
+        accountList.clickNew();
+        assertTrue(newAccountModal.isPageOpened(), "Модалка сломалася");
+        newAccountModal.createAccountLite(account);
+        newAccountModal.save();
 //assertTrue(accountList.isPageOpened(),"Лист аккаунта сломался");
-   }
+    }
 }

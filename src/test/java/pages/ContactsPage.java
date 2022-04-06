@@ -1,13 +1,13 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ContactsPage extends BasePage {
 
-    public static final By BUTTON_NEW=By.cssSelector("a[title=New]");
+    public static final By BUTTON_NEW = By.cssSelector("a[title=New]");
+
     public ContactsPage(WebDriver driver) {
         super(driver);
     }

@@ -52,10 +52,10 @@ public class BaseTest {
         contactsPage = new ContactsPage(driver);
         newAccountModal = new NewAccountModal(driver);
         newContactsModal = new NewContactsModal(driver);
-        loginPage=new LoginPage(driver);
-        loginPageFactory=new LoginPageFactory(driver);
-        accountList=new AccountList(driver);
-        accountSteps=new AccountSteps(driver);
+        loginPage = new LoginPage(driver);
+        loginPageFactory = new LoginPageFactory(driver);
+        accountList = new AccountList(driver);
+        accountSteps = new AccountSteps(driver);
 
     }
 

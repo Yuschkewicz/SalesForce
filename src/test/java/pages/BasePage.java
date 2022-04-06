@@ -11,7 +11,7 @@ import java.time.Duration;
 public abstract class BasePage {
     public static final By USER_NAME = By.id("username");
     public static final By PASSWORD_INPUT = By.id("password");
-    public static final By LOGIN_BUTTON=By.id("Login");
+    public static final By LOGIN_BUTTON = By.id("Login");
     WebDriver driver;
     WebDriverWait wait;
     String baseUrl = "https://login.salesforce.com/";
@@ -25,7 +25,7 @@ public abstract class BasePage {
     //TODO implement opening of the page
     //public abstract BasePage openPage();
 
-    boolean waitForElement(By locator){
+    boolean waitForElement(By locator) {
 
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(locator));

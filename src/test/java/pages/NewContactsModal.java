@@ -1,14 +1,10 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import wrappers.DropDownForContacts;
 import wrappers.InputsForContacts;
 import wrappers.TextAreaForContacts;
-
-import java.time.Duration;
 
 public class NewContactsModal extends BasePage {
     public static final By SAVE = By.cssSelector("[title=Save");
@@ -26,7 +22,7 @@ public class NewContactsModal extends BasePage {
 
     public void createDropDownFields(String salutation, String lead_source) {
         new DropDownForContacts(driver, "Salutation").select(salutation);
-               new DropDownForContacts(driver, "Lead Source").select(lead_source);
+        new DropDownForContacts(driver, "Lead Source").select(lead_source);
     }
 
 
@@ -61,7 +57,6 @@ public class NewContactsModal extends BasePage {
 
 
     }
-
 
 
     public void createTextAreFields(String mailing_street, String other_street, String description) {

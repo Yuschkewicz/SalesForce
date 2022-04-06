@@ -1,9 +1,8 @@
 package test;
+
 import org.testng.annotations.Test;
 
 public class AccountsTest extends BaseTest {
-
-
 
 
     @Test

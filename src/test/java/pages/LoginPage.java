@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -40,14 +39,14 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public LoginPage invalidPassword(){
+    public LoginPage invalidPassword() {
         driver.get(baseUrl);
         wait.until(ExpectedConditions.visibilityOfElementLocated(USER_NAME));
         driver.findElement(USER_NAME).sendKeys("13and.jei-kd2q@force.com");
         driver.findElement(PASSWORD_INPUT).sendKeys("minsk1981");
         driver.findElement(By.id("Login")).submit();
-        String alert=driver.findElement(By.id("error")).getText();
-        assertEquals(alert,"Please check your username and password. " +
+        String alert = driver.findElement(By.id("error")).getText();
+        assertEquals(alert, "Please check your username and password. " +
                 "If you still can't log in, contact your Salesforce administrator.");
         return this;
 
