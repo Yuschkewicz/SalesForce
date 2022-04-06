@@ -7,7 +7,7 @@ import wrappers.InputsForContacts;
 import wrappers.TextAreaForContacts;
 
 public class NewContactsModal extends BasePage {
-    public static final By SAVE = By.cssSelector("[title=Save");
+    public static final By SAVE = By.xpath("//button[@name='SaveEdit']");
 
     public NewContactsModal(WebDriver driver) {
         super(driver);
@@ -22,12 +22,12 @@ public class NewContactsModal extends BasePage {
 
     public void createDropDownFields(String salutation, String lead_source) {
         new DropDownForContacts(driver, "Salutation").select(salutation);
-        new DropDownForContacts(driver, "Lead Source").select(lead_source);
+//        new DropDownForContacts(driver, "Lead Source,").select(lead_source);
     }
 
 
     public void createInputFields(String phone, String mobile, String first_name, String last_name,
-                                  String account_name, String email, String title, String reports_to, String mailing_city,
+                                  String account_name, String email, String title, String mailing_city,
                                   String mailing_state, String other_city, String other_state, String mailing_zip,
                                   String mailing_country, String other_zip, String other_country,
                                   String fax, String department, String home_phone, String other_phone,
@@ -36,10 +36,10 @@ public class NewContactsModal extends BasePage {
         new InputsForContacts(driver, "Mobile").write(mobile);
         new InputsForContacts(driver, "First Name").write(first_name);
         new InputsForContacts(driver, "Last Name").write(last_name);
-        new InputsForContacts(driver, "Account Name").write(account_name);
+        new InputsForContacts(driver, "Account Name").writeAndChoose(account_name);
         new InputsForContacts(driver, "Email").write(email);
         new InputsForContacts(driver, "Title").write(title);
-        new InputsForContacts(driver, "Reports To").write(reports_to);
+        // new InputsForContacts(driver, "Reports To").write(reports_to);
         new InputsForContacts(driver, "Mailing City").write(mailing_city);
         new InputsForContacts(driver, "Mailing State/Province").write(mailing_state);
         new InputsForContacts(driver, "Other City").write(other_city);
@@ -66,7 +66,7 @@ public class NewContactsModal extends BasePage {
     }
 
     public void saveContact() {
-        driver.findElement(SAVE).submit();
+        driver.findElement(SAVE).click();
     }
 
 }

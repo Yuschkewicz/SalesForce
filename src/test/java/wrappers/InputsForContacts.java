@@ -20,4 +20,12 @@ public class InputsForContacts {
 
     }
 
+    public void writeAndChoose(String text) {
+        driver.findElement
+                (By.xpath(String.format("//label[text()='%s']//..//..//div/input", label)))
+                .sendKeys(text);
+        driver.findElement(By.xpath(String.format("//span//strong[text()='%s']", text))).click();
+
+    }
+
 }
