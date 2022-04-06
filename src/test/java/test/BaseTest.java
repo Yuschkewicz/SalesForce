@@ -10,10 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
-import pages.AccountsPage;
-import pages.ContactsPage;
-import pages.NewAccountModal;
-import pages.NewContactsModal;
+import pages.*;
 
 import java.time.Duration;
 
@@ -25,6 +22,8 @@ public class BaseTest {
     ContactsPage contactsPage;
     NewAccountModal newAccountModal;
     NewContactsModal newContactsModal;
+    LoginPage loginPage;
+    LoginPageFactory loginPageFactory;
 
 
     @Parameters({"browser"})
@@ -50,6 +49,8 @@ public class BaseTest {
         contactsPage = new ContactsPage(driver);
         newAccountModal = new NewAccountModal(driver);
         newContactsModal = new NewContactsModal(driver);
+        loginPage=new LoginPage(driver);
+        loginPageFactory=new LoginPageFactory(driver);
     }
 
 

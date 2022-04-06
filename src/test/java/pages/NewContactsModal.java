@@ -6,16 +6,19 @@ import wrappers.DropDownForContacts;
 import wrappers.InputsForContacts;
 import wrappers.TextAreaForContacts;
 
+import java.time.Duration;
+
 public class NewContactsModal extends BasePage {
 
     public NewContactsModal(WebDriver driver) {
         super();
         this.driver = driver;
+
     }
 
     public void createDropDownFields(String salutation, String lead_source) {
         new DropDownForContacts(driver, "Salutation").select(salutation);
-        new DropDownForContacts(driver, "Lead Source").select(lead_source);
+               new DropDownForContacts(driver, "Lead Source").select(lead_source);
     }
 
 
@@ -59,8 +62,8 @@ public class NewContactsModal extends BasePage {
         new TextAreaForContacts(driver, "Description").textAreaWrite(description);
     }
 
-    public void save() {
-        driver.findElement(By.cssSelector("[title=Save]")).click();
+    public void saveContact() {
+        driver.findElement(By.cssSelector("[title=Save]")).submit();
     }
 
 }

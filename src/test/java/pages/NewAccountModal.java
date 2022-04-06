@@ -10,8 +10,8 @@ public class NewAccountModal extends BasePage {
 
 
     public NewAccountModal(WebDriver driver) {
-        super();
-        this.driver = driver;
+        super(driver);
+
     }
 
 
