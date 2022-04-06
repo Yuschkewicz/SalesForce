@@ -1,12 +1,15 @@
-1.NewAccountsModal passed
+Значит так: вскрытие установило, что труп умер от вскрития.
 
-2.NewContactsModal passed(амаль)
-Что-то с дропдауном. Без него все отрабатывает, благо элемент необязательный, но когда он есть:
+public class ContactsTest
+Когда  newContactsModal.createDropDownFields запускается в совокупности методов, то тест падает,
+если же сделать отдельный 
+##
+@Test
+public void dropDownFieldsCheck(){
+loginPage.login();
+contactsPage.contactCreate();
+newContactsModal.createDropDownFields("Mr.","Advertisement");
 
-вариант 1) стоит первым на запуске:    зависает тест время вышло
-
-вариант 2) стоит в середине или конце теста: прилетает: некликабельный элемент.
-
-Причем видно, что он выбирает заданные значения
+Не знаю...но вроде баг. Ведь порядок заполнения полей не указан....
 
 

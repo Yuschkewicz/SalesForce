@@ -8,7 +8,7 @@ public class ContactsTest extends BaseTest {
         loginPage.login();
         contactsPage.contactCreate();
         newContactsModal.createTextAreFields("Baiker str 222", "Lexington 234 ave.", "text");
-        //newContactsModal.createDropDownFields("Mr.", "Advertisement");
+        newContactsModal.createDropDownFields("Mr.","Advertisement");
         newContactsModal.createInputFields("+37529", "15479", "Gregory", "House",
                 "TsM", "tsm@fmail.by", "there must be something", "Bideford",
                 "Devon", "Barnstabple", "Devonshir", "131313", "UK", "11111", "Irish", "4569", "Police",
@@ -18,4 +18,11 @@ public class ContactsTest extends BaseTest {
         newContactsModal.saveContact();
 
     }
+    @Test
+    public void dropDownFieldsCheck(){
+        loginPage.login();
+        contactsPage.contactCreate();
+        newContactsModal.createDropDownFields("Mr.","Advertisement");
+    }
+
 }
