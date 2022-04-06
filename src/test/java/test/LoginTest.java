@@ -1,5 +1,6 @@
 package test;
 
+import dto.Account;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
@@ -14,6 +15,12 @@ public class LoginTest extends BaseTest {
     @Test(description = "Positive  test with valid data")
     public void loginAndStart() {
         loginPage.login();
+        Account account=new Account("Tsm", "tsm.by", "Biotechnology");
+        accountList
+                .open()
+                .clickNew()
+                .createAccountLite(account)
+                .save();
     }
 
 }

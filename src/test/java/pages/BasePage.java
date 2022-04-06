@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class BasePage {
+public abstract class BasePage {
     public static final By USER_NAME = By.id("username");
     public static final By PASSWORD_INPUT = By.id("password");
     public static final By LOGIN_BUTTON=By.id("Login");
@@ -18,6 +18,10 @@ public class BasePage {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
+
+    public abstract boolean isPageOpened();
+    //TODO implement opening of the page
+    //public abstract BasePage openPage();
 
     public BasePage() {
     }

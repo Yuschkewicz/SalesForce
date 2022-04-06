@@ -9,6 +9,12 @@ public class ContactsPage extends BasePage {
         super(driver);
     }
 
+    @Override
+    public BasePage isPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[title=New]")));
+        return this;
+    }
+
     public void contactCreate() {
         driver.get("https://tsw17.lightning.force.com/lightning/o/Contact/list?filterName=Recent");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class," +

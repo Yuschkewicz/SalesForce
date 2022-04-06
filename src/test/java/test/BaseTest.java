@@ -24,6 +24,7 @@ public class BaseTest {
     NewContactsModal newContactsModal;
     LoginPage loginPage;
     LoginPageFactory loginPageFactory;
+    AccountList accountList;
 
 
     @Parameters({"browser"})
@@ -51,6 +52,7 @@ public class BaseTest {
         newContactsModal = new NewContactsModal(driver);
         loginPage=new LoginPage(driver);
         loginPageFactory=new LoginPageFactory(driver);
+        accountList=new AccountList(driver);
     }
 
 

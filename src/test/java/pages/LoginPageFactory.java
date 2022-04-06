@@ -23,6 +23,12 @@ public class LoginPageFactory extends BasePage{
         super(driver);
     }
 
+    @Override
+    public BasePage isPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Login")));
+        return this;
+    }
+
     public void login() {
         driver.get(baseUrl);
         PageFactory.initElements(driver,this);

@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import wrappers.DropDownForContacts;
 import wrappers.InputsForContacts;
 import wrappers.TextAreaForContacts;
@@ -9,11 +10,18 @@ import wrappers.TextAreaForContacts;
 import java.time.Duration;
 
 public class NewContactsModal extends BasePage {
+    public static final By SAVE = By.cssSelector("[title=Save");
 
     public NewContactsModal(WebDriver driver) {
         super();
         this.driver = driver;
 
+    }
+
+    @Override
+    public BasePage isPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(SAVE));
+        return this;
     }
 
     public void createDropDownFields(String salutation, String lead_source) {
@@ -63,7 +71,7 @@ public class NewContactsModal extends BasePage {
     }
 
     public void saveContact() {
-        driver.findElement(By.cssSelector("[title=Save]")).submit();
+        driver.findElement(SAVE).submit();
     }
 
 }

@@ -1,20 +1,34 @@
 package pages;
 
+import dto.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import wrappers.DropDown;
 import wrappers.Input;
 import wrappers.TextArea;
 
 public class NewAccountModal extends BasePage {
 
+public static final By SAVE = By.cssSelector("[title=Save");
 
     public NewAccountModal(WebDriver driver) {
         super(driver);
 
     }
 
+    @Override
+    public BasePage isPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated((SAVE)));
+        return this;
+    }
 
+    public NewAccountModal createAccountLite(Account account) {
+    new Input(driver, "Account Name").write(account.getAccountName());
+    new Input(driver, "Website").write(account.getWebsite());
+    new DropDown(driver, "Type").select(account.getType());
+    return this;
+}
     public void createInputFields(String accountName, String webSite, String phone, String fax, String parent_account,
                                   String employees, String annual_revenue, String billing_city,
                                   String billing_state, String shipping_city, String shipping_state,
@@ -56,6 +70,6 @@ public class NewAccountModal extends BasePage {
     }
 
     public void save() {
-        driver.findElement(By.cssSelector("[title=Save]")).click();
+        driver.findElement(SAVE).click();
     }
 }

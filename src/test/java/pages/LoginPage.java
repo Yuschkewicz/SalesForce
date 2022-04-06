@@ -12,6 +12,12 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
+    @Override
+    public BasePage isPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_BUTTON));
+        return this;
+    }
+
     public LoginPage login() {
         driver.get(baseUrl);
         wait.until(ExpectedConditions.visibilityOfElementLocated(USER_NAME));

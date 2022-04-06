@@ -12,9 +12,11 @@ public class AccountsPage extends BasePage {
         super(driver);
     }
 
-
-
-
+    @Override
+    public BasePage isPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[title=New]")));
+        return this;
+    }
 
 
     public void accountCreate() {
