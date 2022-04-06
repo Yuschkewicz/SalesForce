@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import pages.*;
+import steps.AccountSteps;
 
 import java.time.Duration;
 
@@ -25,6 +26,7 @@ public class BaseTest {
     LoginPage loginPage;
     LoginPageFactory loginPageFactory;
     AccountList accountList;
+    AccountSteps accountSteps;
 
 
     @Parameters({"browser"})
@@ -53,6 +55,8 @@ public class BaseTest {
         loginPage=new LoginPage(driver);
         loginPageFactory=new LoginPageFactory(driver);
         accountList=new AccountList(driver);
+        accountSteps=new AccountSteps(driver);
+
     }
 
 

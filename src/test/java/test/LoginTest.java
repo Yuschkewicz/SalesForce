@@ -16,11 +16,7 @@ public class LoginTest extends BaseTest {
     public void loginAndStart() {
         loginPage.login();
         Account account=new Account("Tsm", "tsm.by", "Biotechnology");
-        accountList
-                .open()
-                .clickNew()
-                .createAccountLite(account)
-                .save();
+        accountSteps.create(account);
     }
 
 }
