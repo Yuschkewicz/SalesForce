@@ -22,7 +22,7 @@ public class NewContactsModal extends BasePage {
 
     public void createDropDownFields(String salutation, String lead_source) {
         new DropDownForContacts(driver, "Salutation").select(salutation);
-//        new DropDownForContacts(driver, "Lead Source,").select(lead_source);
+        new DropDownForContacts(driver, "Lead Source").select(lead_source);
     }
 
 
@@ -69,6 +69,45 @@ public class NewContactsModal extends BasePage {
         driver.findElement(SAVE).click();
     }
 
+    public void createContactWhenFillInSequentiallyFields(String phone, String mobile, String salutation,
+                                                          String first_name, String last_name,
+                                                          String account_name, String email, String title,
+                                                          String mailing_street, String other_street,
+                                                          String mailing_city, String mailing_state, String other_city,
+                                                          String other_state, String mailing_zip,
+                                                          String mailing_country, String other_zip, String other_country,
+                                                          String fax, String department, String home_phone,
+                                                          String lead_source, String other_phone,
+                                                          String asst_phone, String assistant, String description) {
+
+        new InputsForContacts(driver, "Phone").write(phone);
+        new InputsForContacts(driver, "Mobile").write(mobile);
+        new DropDownForContacts(driver, "Salutation").select(salutation);
+        new InputsForContacts(driver, "First Name").write(first_name);
+        new InputsForContacts(driver, "Last Name").write(last_name);
+        new InputsForContacts(driver, "Account Name").writeAndChoose(account_name);
+        new InputsForContacts(driver, "Email").write(email);
+        new InputsForContacts(driver, "Title").write(title);
+        new TextAreaForContacts(driver, "Mailing Street").textAreaWrite(mailing_street);
+        new TextAreaForContacts(driver, "Other Street").textAreaWrite(other_street);
+        new InputsForContacts(driver, "Mailing City").write(mailing_city);
+        new InputsForContacts(driver, "Mailing State/Province").write(mailing_state);
+        new InputsForContacts(driver, "Other City").write(other_city);
+        new InputsForContacts(driver, "Other State/Province").write(other_state);
+        new InputsForContacts(driver, "Mailing Zip/Postal Code").write(mailing_zip);
+        new InputsForContacts(driver, "Mailing Country").write(mailing_country);
+        new InputsForContacts(driver, "Other Zip/Postal Code").write(other_zip);
+        new InputsForContacts(driver, "Other Country").write(other_country);
+        new InputsForContacts(driver, "Fax").write(fax);
+        new InputsForContacts(driver, "Department").write(department);
+        new InputsForContacts(driver, "Home Phone").write(home_phone);
+        new DropDownForContacts(driver, "Lead Source").select(lead_source);
+        new InputsForContacts(driver, "Other Phone").write(other_phone);
+        new InputsForContacts(driver, "Asst. Phone").write(asst_phone);
+        new InputsForContacts(driver, "Assistant").write(assistant);
+        new TextAreaForContacts(driver, "Description").textAreaWrite(description);
+
+    }
 }
 
 
