@@ -3,7 +3,7 @@ package test;
 import org.testng.annotations.Test;
 
 public class ContactsTest extends BaseTest {
-    @Test
+    @Test(description = "nonsequential, causing the test to fail")
     public void createNewContact() {
         loginPage.login();
         contactsPage.contactCreate();
@@ -26,6 +26,7 @@ public class ContactsTest extends BaseTest {
                 "tsm@fmail.by","qwerty","qwerty","qwerty","qwerty","qwerty","qwerty","qwerty","1111","qwerty","2222",
                 "qwerty","14526","qwerty","654789","Advertisement","4587444","789487","44444","qwerty");
         newContactsModal.saveContact();
+        newContactsModal.deleteContact();
     }
 
 }

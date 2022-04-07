@@ -21,6 +21,12 @@ public class DropDownForContacts {
 
     }
 
+    public void deleteContact(String option){
+        driver.get("https://tsw17.lightning.force.com/lightning/o/Contact/list?filterName=Recent");
+        driver.findElement(By.xpath("span[text()='Show Actions']")).click();
+        driver.findElement(By.xpath(String.format("//span[text()='%s']",option))).click();
+    }
+
 
 }
 
