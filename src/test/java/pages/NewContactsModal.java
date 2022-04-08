@@ -3,7 +3,6 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import wrappers.DropDownForContacts;
 import wrappers.InputsForContacts;
 import wrappers.TextAreaForContacts;
@@ -72,11 +71,15 @@ public class NewContactsModal extends BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Dr. Gregory House']")));
     }
 
-    public void deleteContact(){
+    public void selectForDelete(String option) {
+        driver.findElement(By.cssSelector(String.format("[title=Delete]", option))).click();
+    }
+
+    public void deleteContact() {
         driver.get("https://tsw17.lightning.force.com/lightning/o/Contact/list?filterName=Recent");
-       driver.findElement(By.xpath("//span[text()='Show Actions']//..")).click();
-       driver.findElement(By.cssSelector("[title=Delete]")).click();
-       driver.findElement(By.xpath("//span[text()='Delete']")).click();
+        driver.findElement(By.xpath("//span[text()='Show Actions']//..")).click();
+        selectForDelete("Delete");
+        driver.findElement(By.xpath("//span[text()='Delete']")).click();
 
     }
 
