@@ -1,5 +1,6 @@
 package test;
 
+import dto.Account;
 import org.testng.annotations.Test;
 
 public class AccountsTest extends BaseTest {
@@ -16,6 +17,16 @@ public class AccountsTest extends BaseTest {
         newAccountModal.save();
 
 
+    }
+
+    @Test
+    public void createAccountWithBuilder(){
+        loginPage.login();
+        accountsPage.accountCreate();
+        Account account=Account.builder()
+                .accountName("Gregory")
+                .phone("+65489665")
+                .build();
     }
 
 }

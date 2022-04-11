@@ -6,16 +6,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 import pages.*;
 import steps.AccountSteps;
 
 import java.time.Duration;
 
-
+@Listeners(TestListener.class)
 public class BaseTest {
 
     WebDriver driver;
@@ -27,7 +24,8 @@ public class BaseTest {
     LoginPageFactory loginPageFactory;
     AccountList accountList;
     AccountSteps accountSteps;
-
+public static final String USER="13and.jei-kd2q@force.com";
+public static final String PASSWORD="minsk1985";
 
     @Parameters({"browser"})
     @BeforeMethod
