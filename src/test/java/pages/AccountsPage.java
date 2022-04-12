@@ -19,7 +19,7 @@ public class AccountsPage extends BasePage {
 
 
     public void clickNewForBeginProcessOfCreatingAccount() {
-        driver.get(baseurl+"Account/list?filterName=Recent");
+        driver.get(baseurl + "Account/list?filterName=Recent");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class," +
                 "'slds-breadcrumb__item')]//span[text()='Accounts']")));
         driver.findElement(BUTTON_NEW).click();

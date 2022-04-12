@@ -4,9 +4,11 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 @Log4j2
-public class ContactList extends BasePage{
+public class ContactList extends BasePage {
     public static final By TITLE = By.xpath("//div[contains(@class, 'slds-breadcrumb__item')]//span[text()='Contacts']");
+
     public ContactList(WebDriver driver) {
         super(driver);
     }

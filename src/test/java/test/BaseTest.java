@@ -9,12 +9,14 @@ import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
 import steps.AccountSteps;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import java.time.Duration;
 
 @Listeners(TestListener.class)
 public class BaseTest {
 
+    public static final String USER = "13and.jei-kd2q@force.com";
+    public static final String PASSWORD = "minsk1985";
     WebDriver driver;
     AccountsPage accountsPage;
     ContactsPage contactsPage;
@@ -24,8 +26,6 @@ public class BaseTest {
     LoginPageFactory loginPageFactory;
     AccountList accountList;
     AccountSteps accountSteps;
-public static final String USER="13and.jei-kd2q@force.com";
-public static final String PASSWORD="minsk1985";
 
     @Parameters({"browser"})
     @BeforeMethod

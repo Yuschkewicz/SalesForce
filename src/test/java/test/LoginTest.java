@@ -15,8 +15,9 @@ public class LoginTest extends BaseTest {
         assertEquals(notification, "Please check your username and password." +
                 " If you still can't log in, contact your Salesforce administrator.");
     }
+
     @Test
-    public  void invalidPassword(){
+    public void invalidPassword() {
         loginPage.invalidPassword();
         String alert = driver.findElement(By.id("error")).getText();
         assertEquals(alert, "Please check your username and password. " +

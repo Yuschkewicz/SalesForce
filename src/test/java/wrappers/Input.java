@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 public class Input {
     WebDriver driver;
     String label;
-    Logger logger= LoggerFactory.getLogger(Input.class);
+    Logger logger = LoggerFactory.getLogger(Input.class);
 
     public Input(WebDriver driver, String label) {
         this.driver = driver;

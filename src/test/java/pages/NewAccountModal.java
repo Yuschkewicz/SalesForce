@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import wrappers.DropDown;
 import wrappers.Input;
 import wrappers.TextArea;
+
 @Log4j2
 public class NewAccountModal extends BasePage {
 
@@ -23,7 +24,7 @@ public class NewAccountModal extends BasePage {
     }
 
     public NewAccountModal createAccountLite(Account account) {
-        log.info("Creation of account {}",account.getAccountName());
+        log.info("Creation of account {}", account.getAccountName());
         new Input(driver, "Account Name").write(account.getAccountName());
         new Input(driver, "Website").write(account.getWebsite());
         new DropDown(driver, "Type").select(account.getType());

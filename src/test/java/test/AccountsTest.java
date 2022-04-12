@@ -2,7 +2,7 @@ package test;
 
 import dto.Account;
 import org.testng.annotations.Test;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
 public class AccountsTest extends BaseTest {
 
 
@@ -20,10 +20,10 @@ public class AccountsTest extends BaseTest {
     }
 
     @Test
-    public void createAccountWithBuilder(){
+    public void createAccountWithBuilder() {
         loginPage.login();
         accountsPage.clickNewForBeginProcessOfCreatingAccount();
-        Account account=Account.builder()
+        Account account = Account.builder()
                 .accountName("Gregory")
                 .phone("+65489665")
                 .build();

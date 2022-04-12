@@ -76,7 +76,7 @@ public class NewContactsModal extends BasePage {
     }
 
     public void deleteContact() {
-        driver.get(baseurl+"Contact/list?filterName=Recent");
+        driver.get(baseurl + "Contact/list?filterName=Recent");
         driver.findElement(By.xpath("//span[text()='Show Actions']//..")).click();
         selectForDelete("Delete");
         driver.findElement(By.xpath("//span[text()='Delete']")).click();
