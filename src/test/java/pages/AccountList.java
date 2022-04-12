@@ -19,18 +19,18 @@ public class AccountList extends BasePage {
         return waitForElement(TITLE);
     }
 
-    @Step(" степ какойто")
+    @Step(" open page for account create")
     public AccountList open() {
-        log.info("");
+        log.info(" open page for account create");
         driver.get("https://tsw17.lightning.force.com/lightning/o/Account/list?filterName=Recent");
         isPageOpened();
         return this;
     }
 
-    @Step(" еще какойото")
+    @Step(" click button NEW and start process creating account")
 
     public NewAccountModal clickNew() {
-        log.info("");
+        log.info("click button NEW and start process creating account");
         driver.findElement(By.cssSelector("a[title=New")).click();
         return new NewAccountModal(driver);
     }

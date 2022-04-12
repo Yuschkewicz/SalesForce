@@ -1,14 +1,26 @@
 package test;
 
 import dto.Account;
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
 
 public class LoginTest extends BaseTest {
 
     @Test(description = "Negative test")
-    public void invalidLoginOrPassword() {
+    public void invalidLogin() {
         loginPage.invalidLogin();
+        String notification = driver.findElement(By.id("error")).getText();
+        assertEquals(notification, "Please check your username and password." +
+                " If you still can't log in, contact your Salesforce administrator.");
+    }
+    @Test
+    public  void invalidPassword(){
         loginPage.invalidPassword();
+        String alert = driver.findElement(By.id("error")).getText();
+        assertEquals(alert, "Please check your username and password. " +
+                "If you still can't log in, contact your Salesforce administrator.");
     }
 
 

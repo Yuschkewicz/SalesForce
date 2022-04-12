@@ -7,7 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import static org.testng.Assert.assertEquals;
 
 public class LoginPage extends BasePage {
-
+    public static final String USER ="13and.jei-kd2q@force.com";
+    public static final String PASSWORD = "minsk1985";
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -18,36 +19,32 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage login() {
-        driver.get(baseUrl);
+        driver.get(startUrl);
         wait.until(ExpectedConditions.visibilityOfElementLocated(USER_NAME));
-        driver.findElement(USER_NAME).sendKeys("13and.jei-kd2q@force.com");
-        driver.findElement(PASSWORD_INPUT).sendKeys("minsk1985");
+        driver.findElement(USER_NAME).sendKeys(USER);
+        driver.findElement(PASSWORD_INPUT).sendKeys(PASSWORD);
         driver.findElement(LOGIN_BUTTON).submit();
-        wait.until((ExpectedConditions.visibilityOfElementLocated(By.id("trial-customdemo"))));
+
         return this;
     }
 
     public LoginPage invalidLogin() {
-        driver.get(baseUrl);
+        driver.get(startUrl);
         wait.until(ExpectedConditions.visibilityOfElementLocated(USER_NAME));
-        driver.findElement(USER_NAME).sendKeys("13and.jei-kd12q@force.com");
-        driver.findElement(PASSWORD_INPUT).sendKeys("minsk1985");
+        driver.findElement(USER_NAME).sendKeys(USER);
+        driver.findElement(PASSWORD_INPUT).sendKeys(PASSWORD);
         driver.findElement(By.id("Login")).submit();
-        String notification = driver.findElement(By.id("error")).getText();
-        assertEquals(notification, "Please check your username and password." +
-                " If you still can't log in, contact your Salesforce administrator.");
+
         return this;
     }
 
     public LoginPage invalidPassword() {
-        driver.get(baseUrl);
+        driver.get(startUrl);
         wait.until(ExpectedConditions.visibilityOfElementLocated(USER_NAME));
-        driver.findElement(USER_NAME).sendKeys("13and.jei-kd2q@force.com");
-        driver.findElement(PASSWORD_INPUT).sendKeys("minsk1981");
+        driver.findElement(USER_NAME).sendKeys(USER);
+        driver.findElement(PASSWORD_INPUT).sendKeys(PASSWORD);
         driver.findElement(By.id("Login")).submit();
-        String alert = driver.findElement(By.id("error")).getText();
-        assertEquals(alert, "Please check your username and password. " +
-                "If you still can't log in, contact your Salesforce administrator.");
+
         return this;
 
 

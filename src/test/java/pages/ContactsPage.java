@@ -17,8 +17,8 @@ public class ContactsPage extends BasePage {
         return waitForElement(BUTTON_NEW);
     }
 
-    public void contactCreate() {
-        driver.get("https://tsw17.lightning.force.com/lightning/o/Contact/list?filterName=Recent");
+    public void clickNewForStartContactCreate() {
+        driver.get(baseurl+"Contact/list?filterName=Recent");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class," +
                 "'slds-breadcrumb__item')]//span[text()='Contacts']")));
         driver.findElement(BUTTON_NEW).click();

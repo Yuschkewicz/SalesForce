@@ -14,7 +14,8 @@ public abstract class BasePage {
     public static final By LOGIN_BUTTON = By.id("Login");
     WebDriver driver;
     WebDriverWait wait;
-    String baseUrl = "https://login.salesforce.com/";
+    String startUrl = "https://login.salesforce.com/";
+    String baseurl="https://tsw17.lightning.force.com/lightning/o/";
 
     public BasePage(WebDriver driver) {
         this.driver = driver;

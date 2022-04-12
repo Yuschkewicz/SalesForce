@@ -18,8 +18,8 @@ public class AccountsPage extends BasePage {
     }
 
 
-    public void accountCreate() {
-        driver.get("https://tsw17.lightning.force.com/lightning/o/Account/list?filterName=Recent");
+    public void clickNewForBeginProcessOfCreatingAccount() {
+        driver.get(baseurl+"Account/list?filterName=Recent");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class," +
                 "'slds-breadcrumb__item')]//span[text()='Accounts']")));
         driver.findElement(BUTTON_NEW).click();

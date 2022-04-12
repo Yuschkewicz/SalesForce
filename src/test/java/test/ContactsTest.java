@@ -6,7 +6,7 @@ public class ContactsTest extends BaseTest {
     @Test(description = "nonsequential, causing the test to fail")
     public void createNewContact() {
         loginPage.login();
-        contactsPage.contactCreate();
+        contactsPage.clickNewForStartContactCreate();
         newContactsModal.createTextAreFields("Baiker str 222", "Lexington 234 ave.", "text");
         newContactsModal.createDropDownFields("Mr.","Advertisement");
         newContactsModal.createInputFields("+37529", "15479", "Gregory", "House",
@@ -21,7 +21,7 @@ public class ContactsTest extends BaseTest {
     @Test(description = " empirically established the need for sequential filling of fields")
     public void createContactWhenFillInSequentiallyFields(){
         loginPage.login();
-        contactsPage.contactCreate();
+        contactsPage.clickNewForStartContactCreate();
         newContactsModal.createContactWhenFillInSequentiallyFields("+3725","78965","Dr.","Gregory","House","TsM",
                 "tsm@fmail.by","qwerty","qwerty","qwerty","qwerty","qwerty","qwerty","qwerty","1111","qwerty","2222",
                 "qwerty","14526","qwerty","654789","Advertisement","4587444","789487","44444","qwerty");

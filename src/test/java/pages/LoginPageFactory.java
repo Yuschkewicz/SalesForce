@@ -29,7 +29,7 @@ public class LoginPageFactory extends BasePage {
     }
 
     public void login() {
-        driver.get(baseUrl);
+        driver.get(startUrl);
         PageFactory.initElements(driver, this);
         wait.until(ExpectedConditions.visibilityOfElementLocated(USER_NAME));
         userInput.sendKeys("13and.jei-kd2q@force.com");
@@ -39,7 +39,7 @@ public class LoginPageFactory extends BasePage {
     }
 
     public void invalidLogin() {
-        driver.get(baseUrl);
+        driver.get(startUrl);
         wait.until(ExpectedConditions.visibilityOfElementLocated(USER_NAME));
         userInput.sendKeys("13and.jei-kd12q@force.com");
         passwordInput.sendKeys("minsk1985");
@@ -50,7 +50,7 @@ public class LoginPageFactory extends BasePage {
     }
 
     public void invalidPassword() {
-        driver.get(baseUrl);
+        driver.get(startUrl);
         wait.until(ExpectedConditions.visibilityOfElementLocated(USER_NAME));
         userInput.sendKeys("13and.jei-kd2q@force.com");
         passwordInput.sendKeys("minsk1981");
