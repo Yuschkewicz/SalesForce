@@ -1,24 +1,32 @@
 package test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
-import pages.AccountsPage;
-import pages.ContactsPage;
+import pages.*;
+import steps.AccountSteps;
 
 import java.time.Duration;
 
-
+@Listeners(TestListener.class)
 public class BaseTest {
 
+    public static final String USER = "13and.jei-kd2q@force.com";
+    public static final String PASSWORD = "minsk1985";
     WebDriver driver;
     AccountsPage accountsPage;
     ContactsPage contactsPage;
+    NewAccountModal newAccountModal;
+    NewContactsModal newContactsModal;
+    LoginPage loginPage;
+    LoginPageFactory loginPageFactory;
+    AccountList accountList;
+    AccountSteps accountSteps;
+
     @Parameters({"browser"})
     @BeforeMethod
     public void setup(@Optional("chrome") String browser, ITestContext testContext) {
@@ -36,10 +44,17 @@ public class BaseTest {
         }
         testContext.setAttribute("driver", driver);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
-        accountsPage=new AccountsPage(driver);
-        contactsPage=new ContactsPage(driver);
+        accountsPage = new AccountsPage(driver);
+        contactsPage = new ContactsPage(driver);
+        newAccountModal = new NewAccountModal(driver);
+        newContactsModal = new NewContactsModal(driver);
+        loginPage = new LoginPage(driver);
+        loginPageFactory = new LoginPageFactory(driver);
+        accountList = new AccountList(driver);
+        accountSteps = new AccountSteps(driver);
+
     }
 
 
